@@ -20,7 +20,7 @@ function RomanNumber(input) {
 		default:
 			throw new Error('invalid value');
 	}
-};
+}
 
 RomanNumber.prototype.constructFromString = function(inputString) {
 	// regex matching will at the same time validate the input and parse it
