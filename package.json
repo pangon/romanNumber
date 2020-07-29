@@ -1,0 +1,25 @@
+{
+  "name": "romannumber",
+  "version": "1.0.0",
+  "description": "roman numeral conversion library",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pangon/romanNumber.git"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "Claudio Felicioli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pangon/romanNumber/issues"
+  },
+  "homepage": "https://github.com/pangon/romanNumber#readme",
+  "devDependencies": {
+    "jest": "^26.1.0"
+  }
+}
