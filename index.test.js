@@ -35,5 +35,5 @@ const errorTrowingTestcases = [
 ];
 
 string2intTestcases.forEach(
-	testCase => ((input, expectedOutput) => test("converting string '" + input + "'", () => { expect(RomanNumber(input).toInt()).toBe(expectedOutput); }))(testCase[0], testCase[1])
+	testCase => ((input, expectedOutput) => test("converting string '" + input + "'", () => { expect(new RomanNumber(input).toInt()).toBe(expectedOutput); }))(testCase[0], testCase[1])
 )
