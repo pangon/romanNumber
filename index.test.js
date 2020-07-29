@@ -15,14 +15,14 @@ const string2intTestcases = [
 
 const int2stringTestcases = [
 	[ 1, "I" ],
-	[ 3, "I" ],
-	[ 4, "I" ],
-	[ 5, "I" ],
-	[ "1473", 1473 ],
-	[ 1968, "I" ],
-	[ 2999, "I" ],
-	[ 3000, "I" ],
-	[ 10000, "I" ],
+	[ 3, "III" ],
+	[ 4, "IV" ],
+	[ 5, "V" ],
+	[ 5.3, "V" ],
+	[ "1473", "MCDLXXIII" ],
+	[ 1968, "MCMLXVIII" ],
+	[ 2999, "MMCMXCIX" ],
+	[ 3000, "MMM" ],
 ];
 
 const errorTrowingTestcases = [
@@ -33,6 +33,7 @@ const errorTrowingTestcases = [
 	[ "CD1X", 1473 ],
 	[ "error", 1473 ],
 	[ "MMMMDMXCIX", 99999 ],
+	[ 10000, "I" ],
 ];
 
 string2intTestcases.forEach(
