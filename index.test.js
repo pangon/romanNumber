@@ -25,15 +25,15 @@ const int2stringTestcases = [
 ];
 
 const errorTrowingTestcases = [
-	[ null, 4 ],
-	[ 0, 4 ],
-	[ "", 4 ],
-	[ "IIII", 4 ],
-	[ "CD1X", 1473 ],
-	[ "error", 1473 ],
-	[ "MMMMDMXCIX", 99999 ],
-	[ 10000, "I" ],
-	[ 5.3, "V" ],
+	[ null, "invalid value" ],
+	[ 0, "invalid range" ],
+	[ "", "invalid value" ],
+	[ "IIII", "invalid value" ],
+	[ "CD1X", "invalid value" ],
+	[ "error", "invalid value" ],
+	[ "MMMMDMXCIX", "invalid value" ],
+	[ 10000, "invalid range" ],
+	[ 5.3, "invalid value" ],
 ];
 
 string2intTestcases.forEach(
@@ -42,4 +42,8 @@ string2intTestcases.forEach(
 
 int2stringTestcases.forEach(
 	testCase => ((input, expectedOutput) => test("converting arabic '" + input + "' to roman", () => { expect(new RomanNumber(input).toString()).toBe(expectedOutput); }))(testCase[0], testCase[1])
+)
+
+errorTrowingTestcases.forEach(
+	testCase => ((input, expectedOutput) => test("using error throwing input '" + input + "'", () => { expect(() => { new RomanNumber(input); }).toThrow(expectedOutput); }))(testCase[0], testCase[1])
 )
