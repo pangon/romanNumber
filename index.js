@@ -62,8 +62,41 @@ class RomanNumber {
 
 	constructFromNumber(inputNumber) {
 		if(!isFinite(inputNumber) || (Math.floor(inputNumber) !== inputNumber)) throw new Error("invalid value");
-		this.roman = "V";
-		this.arabic = value;
+		if((inputNumber < 1) || (inputNumber > 3999)) throw new Error("invalid range");
+
+		let roman = "";
+		const originalInputNumber = inputNumber;
+
+		//unit component
+		let component = inputNumber % 10;
+		if(component !== 0) roman = UNITS[component - 1] + roman;
+
+		if(inputNumber > component) { //stop if number has been already entirely parsed already
+			//ten component
+			inputNumber -= component;
+			inputNumber /= 10;
+			component = inputNumber % 10;
+			if(component !== 0) roman = TENS[component - 1] + roman;
+		}
+
+		if(inputNumber > component) {
+			//hundred component
+			inputNumber -= component;
+			inputNumber /= 10;
+			component = inputNumber % 10;
+			if(component !== 0) roman = HUNDREDS[component - 1] + roman;
+		}
+
+		if(inputNumber > component) {
+			//thousand component
+			inputNumber -= component;
+			inputNumber /= 10;
+			component = inputNumber % 10;
+			if(component !== 0) roman = THOUSANDS[component - 1] + roman;
+		}
+
+		this.roman = roman;
+		this.arabic = originalInputNumber;
 	}
 
 	toInt() {
