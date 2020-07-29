@@ -39,11 +39,20 @@ const errorTrowingTestcases = [
 string2intTestcases.forEach(
 	testCase => ((input, expectedOutput) => test("converting string '" + input + "' to arabic", () => { expect(new RomanNumber(input).toInt()).toBe(expectedOutput); }))(testCase[0], testCase[1])
 )
+string2intTestcases.forEach(
+	testCase => ((input, expectedOutput) => test("converting string '" + input + "' to arabic (without using new)", () => { expect(RomanNumber(input).toInt()).toBe(expectedOutput); }))(testCase[0], testCase[1])
+)
 
 int2stringTestcases.forEach(
 	testCase => ((input, expectedOutput) => test("converting arabic '" + input + "' to roman", () => { expect(new RomanNumber(input).toString()).toBe(expectedOutput); }))(testCase[0], testCase[1])
 )
+int2stringTestcases.forEach(
+	testCase => ((input, expectedOutput) => test("converting arabic '" + input + "' to roman (without using new)", () => { expect(RomanNumber(input).toString()).toBe(expectedOutput); }))(testCase[0], testCase[1])
+)
 
 errorTrowingTestcases.forEach(
 	testCase => ((input, expectedOutput) => test("using error throwing input '" + input + "'", () => { expect(() => { new RomanNumber(input); }).toThrow(expectedOutput); }))(testCase[0], testCase[1])
+)
+errorTrowingTestcases.forEach(
+	testCase => ((input, expectedOutput) => test("using error throwing input '" + input + "' (without using new)", () => { expect(() => { RomanNumber(input); }).toThrow(expectedOutput); }))(testCase[0], testCase[1])
 )
