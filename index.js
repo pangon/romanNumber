@@ -17,7 +17,10 @@ function RomanNumber(input) {
 		case "number":
 			this.constructFromNumber(input);
 			break;
+		case "undefined":
+			throw new Error('value required');
 		default:
+			if(input === null) throw new Error('value required');
 			throw new Error('invalid value');
 	}
 }

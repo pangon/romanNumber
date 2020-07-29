@@ -27,7 +27,7 @@ const int2stringTestcases = [
 ];
 
 const errorTrowingTestcases = [
-	[undefined, "value required"],
+	[void 0, "value required"],
 	[null, "value required"],
 	[0, "invalid range"],
 	["", "invalid value"],
